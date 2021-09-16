@@ -43,3 +43,6 @@ vignettes/*.pdf
 
 # Logs
 *.log
+
+# Tex main file
+main.tex
