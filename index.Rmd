@@ -1,0 +1,140 @@
+---
+title: "Bronquiolite"
+author:
+- name: Kassyano Kevyn Andrade de Souza
+- name: Rayssa Lorrane Costa Souza 
+output: html_document
+---
+
+```{r, include = FALSE}
+source("src/packages.R")
+```
+```{r, include = FALSE}
+# reading dataset
+bronquiolite <- read_csv("data/bronquiolite.csv")
+```
+## Metodologia
+Nível de significância para todos os testes: 0,05
+
+## Variáveis Qualitativas
+
+### Presença de reinternações por grupo de tratamento
+
+```{r}
+(
+  reinternacoes_grupo <- bronquiolite[, c("Reinternações", "Grupo")] %>%
+    table() %>%
+    chisq.test()
+)
+```
+
+
+O p-valor obtido é muito alto (`r reinternacoes_grupo %>% str_replace_all("\\.", ",")`,
+de modo que não há evidências de associação entre tipo de tratamento com e a presença
+de reinternações.
+
+### Grau de desconforto respiratório por grupo de tratamento
+
+```{r}
+(
+  desconforto_grupo <- bronquiolite[, c("Desconforto", "Grupo")] %>%
+    table() %>%
+    chisq.test()
+)
+```
+O p valor foi extremamente pequeno, mostrando evidências de que o tipo de tratamento
+está ligado ao grau de desconforto do paciente.
+
+Verificando qual tratamento apresenta mais casos graves de desconforto respiratório:
+
+```{r}
+bronquiolite[, c("Desconforto", "Grupo")] %>%
+  table() %>%
+  prop.table(margin = 2)
+```
+
+O tratamento de "Oxigenoterapia + Outros" tem mais casos graves em relação ao tratamento
+de "Oxigenoterapia", de modo que "Oxigenoterapia + Outros" apresenta um maior grau de
+desconforto.
+
+Melhora dos Sinais de Desconforto  Respiratório
+
+```{r}
+bronquiolite[, c("Melhora dos sinais de desconforto respiratório (leve, parcial, significativa)", "Grupo")] %>%
+  table() %>%
+  chisq.test(simulate.p.value = TRUE)
+```
+
+* Aceitamos H0, ou seja, considerando que o valor p é maior que 0,05, com nivél de significância de 95%, não existe evidências de associação do tipo de tratamento com a  variável "Melhora dos Sinais de Desconforto  Respiratório".
+
+Presença de Complicações
+```{r}
+bronquiolite[, c("Complicações", "Grupo")] %>%
+  table() %>%
+  chisq.test(simulate.p.value = TRUE)
+```
+* Aceitamos H0, ou seja, considerando que o valor p é maior que 0,05, com nivél de significância de 95%, não existe evidências de associação do tipo de tratamento com a  variável "Presença de Complicações".
+
+
+################## Variáveis Quantitativas #############
+
+Tempo de Internação
+
+* Testando a normalidade dos dados 
+```{r}
+bronquiolite %$%
+  shapiro.test(Tempo)
+```
+* Os dados não possuem evidências de normalidade, portanto iremos aplicar o teste de Kruskal Wallis, pois esse teste compara a média de duas populações e não é necessário fazer nenhuma inferência sobre a distribuição de probabilidades da variável de interesse.
+
+
+```{r}
+wilcox.test(Tempo ~ Grupo, bronquiolite)
+```
+
+* Aceitamos H0, ou seja, considerando que o valor p é maior que 0,05, com nivél de significância de 95%, não existe evidências de associação do tipo de tratamento com a  variável "Tempo de Internação".
+
+```{r}
+ggplot(bronquiolite) +
+  aes(x = Grupo, y = Tempo) +
+  geom_boxplot(fill = c("#A9A9A9"), width = 0.5) +
+  stat_summary(
+    fun = "mean", geom = "point",
+    shape = 23, size = 3,
+    fill = "white"
+  ) +
+  labs(x = "Tipo de Tratamento", y = "Tempo de Internação") +
+  theme_bw()
+ggsave("tempo_tratamento.pdf", width = 170, height = 95, units = "mm")
+```
+
+Quantidade de Litros de Oxigênio
+
+Testando a normalidade dos dados:
+
+```{r}
+bronquiolite %$%
+  shapiro.test(Oxigênio)
+```
+* Os dados não possuem evidências de normalidade, portanto iremos aplicar o teste de Kruskal Wallis, pois esse teste compara a média de duas populações e não é necessário fazer nenhuma inferência sobre a distribuição de probabilidades da variável de interesse.
+
+```{r}
+wilcox.test(Oxigênio ~ Grupo, bronquiolite)
+```
+
+* Aceitamos H0, ou seja, considerando que o valor p é maior que 0,05, com nivél de significância de 95%, não existe evidências de associação do tipo de tratamento com a  variável "Quantidade de Litros de Oxigênio".
+
+Melhora na Saturação de Oxigênio
+
+```{r}
+bronquiolite %$%
+  shapiro.test(Saturação)
+```
+
+* Os dados não possuem evidências de normalidade, portanto iremos aplicar o teste de Kruskal Wallis, pois esse teste compara a média de duas populações e não é necessário fazer nenhuma inferência sobre a distribuição de probabilidades da variável de interesse.
+
+```{r}
+wilcox.test(Saturação ~ Grupo, bronquiolite)
+```
+
+* Aceitamos H0, ou seja, considerando que o valor p é maior que 0,05, com nivél de significância de 95%, não existe evidências de associação do tipo de tratamento com a  variável "Melhora na Saturação de Oxigênio".
