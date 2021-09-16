@@ -1,40 +1,22 @@
 ---
-output: 
-  pdf_document:
-    citation_package: natbib
-    keep_tex: true
-    fig_caption: true
-    latex_engine: pdflatex
-    template: ./template/svm-latex-ms.tex
-bibliography: master.bib
-header-includes:
-  -  \usepackage{hyperref}
-  - \usepackage{array}   
-  - \usepackage{caption}
-  - \usepackage{graphicx}
-  - \usepackage{siunitx}
-  - \usepackage[table]{xcolor}
-  - \usepackage{multirow}
-  - \usepackage{hhline}
-  - \usepackage{calc}
-  - \usepackage{tabularx}
-  - \usepackage{fontawesome}
-  - \usepackage[para,online,flushleft]{threeparttable}
-biblio-style: apsr
 title: "Tratamentos com oxigenoterapia em pacientes com bronquiolite"
-thanks: "Replication files are available on the author's Github account (http://github.com/svmiller). **Current version**: `r format(Sys.time(), '%B %d, %Y')`; **Corresponding author**: svmille@clemson.edu."
+runningheader: "Tratamentos com oxigenoterapia em pacientes com bronquiolite" # only for pdf output
+subtitle: "Diferenças entre os grupos de tratamento" # only for html output
 author:
-- name: Kassyano Kevyn Andrade de Souza
-- name: Rayssa Lorrane Costa Souza 
+- name: Kevyn Andrade
+- name: Rayssa Souza 
   affiliation: Universidade de Brasília
-abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-keywords: "bronquiolite, oxigenoterapia"
-date: "`r format(Sys.time(), '%B %d, %Y')`"
-geometry: margin=1in
-fontfamily: libertine
-fontsize: 11pt
-# spacing: double
-endnote: no
+date: "`r Sys.Date()`"
+output:
+  tufte::tufte_html: default
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+bibliography: skeleton.bib
+link-citations: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -70,7 +52,6 @@ bronquiolite[, c("Reinternações", "Grupo")] %>%
   table() %>%
   chisq.test()
 ```
-
 
 O p-valor obtido é muito alto, de modo que não há evidências
 de associação entre tipo de tratamento com e a presença
@@ -179,3 +160,13 @@ wilcox.test(Saturação ~ Grupo, bronquiolite)
 ```
 
 Não há evidências de associação do tipo de tratamento com a melhora na saturação de oxigênio.
+
+```{r}
+pacman::p_load(knitr, kableExtra)
+df <- data.frame(Cat = c("Short", "Tall"), 
+                 Sad = linebreak(c("Sam\nBeth", "Erin\nTed")), 
+                 Happy = linebreak(c("Jim\nSara", "Bob\nAva")))
+kable(df, col.names = c("", "Sad", "Happy"), escape = F, caption = "My caption") %>%
+
+kable_styling(latex_options = "hold_position")
+```
