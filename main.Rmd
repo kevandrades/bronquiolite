@@ -10,12 +10,7 @@ date: "`r Sys.Date()`"
 output:
   tufte::tufte_html: default
   tufte::tufte_handout:
-    citation_package: natbib
     latex_engine: xelatex
-  tufte::tufte_book:
-    citation_package: natbib
-    latex_engine: xelatex
-bibliography: skeleton.bib
 link-citations: yes
 ---
 
@@ -32,10 +27,10 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r, echo = FALSE}
+```{r}
 source("src/packages.R")
 ```
-```{r, include = FALSE}
+```{r, echo = FALSE, include = FALSE}
 # reading dataset
 bronquiolite <- read_csv("data/bronquiolite.csv")
 ```
@@ -47,10 +42,11 @@ bronquiolite <- read_csv("data/bronquiolite.csv")
 
 ## Presença de reinternações por grupo de tratamento
 
-```{r, warning = FALSE}
+```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Reinternações", "Grupo")] %>%
   table() %>%
-  chisq.test()
+  chisq.test() %>%
+  table_from_test()
 ```
 
 O p-valor obtido é muito alto, de modo que não há evidências
@@ -59,20 +55,21 @@ de reinternações.
 
 ## Grau de desconforto respiratório por grupo de tratamento
 
-```{r, warning = FALSE}
+```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Desconforto", "Grupo")] %>%
     table() %>%
-    chisq.test()
+    chisq.test() %>%
+  table_from_test()
 ```
 O p valor foi extremamente pequeno, mostrando evidências de que o tipo de tratamento
 está ligado ao grau de desconforto do paciente.
 
 Verificando qual tratamento apresenta mais casos graves de desconforto respiratório:
 
-```{r, warning = FALSE}
+```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Desconforto", "Grupo")] %>%
   table() %>%
-  prop.table(margin = 2)
+  prop.table(margin = 1)
 ```
 
 O tratamento de "Oxigenoterapia + Outros" tem mais casos graves em relação ao tratamento
@@ -81,20 +78,22 @@ desconforto.
 
 ## Melhora nos sinais de desconforto respiratório
 
-```{r, warning = FALSE}
+```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Melhora dos sinais de desconforto respiratório", "Grupo")] %>%
   table() %>%
-  fisher.test()
+  fisher.test() %>%
+  table_from_test()
 ```
 
 Não há evidência significativa de associação entre tipo de tratamento e melhora
 nos sinais de desconforto respiratório.
 
 ## Presença de Complicações
-```{r, warning = FALSE}
+```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Complicações", "Grupo")] %>%
     table() %>%
-    fisher.test()
+    fisher.test() %>%
+    table_from_test()
 ```
 
 Não existe evidência significativa de associação entre tipo de tratamento
@@ -104,21 +103,22 @@ e a presença de complicações.
 # Variáveis Quantitativas
 
 ## Tempo de internação
-```{r, warning = FALSE}
+```{r, include = FALSE, warning = FALSE}
 bronquiolite %$%
   shapiro.test(Tempo)
 ```
 Dado que há evidências contra a hipótese de normalidade, será usado o teste de
 Mann-Whitney-Wilcoxon.
 
-```{r, warning = FALSE}
-wilcox.test(Tempo ~ Grupo, bronquiolite)
+```{r, echo = FALSE, warning = FALSE}
+wilcox.test(Tempo ~ Grupo, bronquiolite) %>%
+  table_from_test()
 ```
 
 Não há evidências de associação significativa entre tipo de tratamento
 e tempo de internação.
 
-```{r, warning = FALSE}
+```{r, echo = FALSE, warning = FALSE}
 ggplot(bronquiolite) +
   aes(x = Grupo, y = Tempo) +
   geom_boxplot(fill = c("#A9A9A9"), width = 0.5) +
@@ -134,39 +134,31 @@ ggplot(bronquiolite) +
 
 ## Quantidade de Litros de Oxigênio
 
-```{r, warning = FALSE}
+```{r, include = FALSE, warning = FALSE}
 bronquiolite %$%
   shapiro.test(Oxigênio)
 ```
 Há evidências contra a hipótese de normalidade. Será usado o teste de Mann-Whitney-Wilcoxon.
 
-```{r, warning = FALSE}
-wilcox.test(Oxigênio ~ Grupo, bronquiolite)
+```{r, echo = FALSE, warning = FALSE}
+wilcox.test(Oxigênio ~ Grupo, bronquiolite) %>%
+  table_from_test()
 ```
 
 Há evidências de associação entre tipo de tratamento e a quantidade de litros de oxigênio.
 
 ## Melhora na Saturação de Oxigênio
 
-```{r, warning = FALSE}
+```{r, include = FALSE, warning = FALSE}
 bronquiolite %$%
   shapiro.test(Saturação)
 ```
 
 Há evidências contra a hipótese de normalidade da saturação.
 
-```{r, warning = FALSE}
-wilcox.test(Saturação ~ Grupo, bronquiolite)
+```{r, echo = FALSE, warning = FALSE}
+wilcox.test(Saturação ~ Grupo, bronquiolite) %>%
+  table_from_test()
 ```
 
 Não há evidências de associação do tipo de tratamento com a melhora na saturação de oxigênio.
-
-```{r}
-pacman::p_load(knitr, kableExtra)
-df <- data.frame(Cat = c("Short", "Tall"), 
-                 Sad = linebreak(c("Sam\nBeth", "Erin\nTed")), 
-                 Happy = linebreak(c("Jim\nSara", "Bob\nAva")))
-kable(df, col.names = c("", "Sad", "Happy"), escape = F, caption = "My caption") %>%
-
-kable_styling(latex_options = "hold_position")
-```
