@@ -49,3 +49,6 @@ main.tex
 
 # Auto-generated files from Rmd
 /figs/*
+
+# png files
+*.png
