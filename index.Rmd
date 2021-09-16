@@ -62,17 +62,17 @@ desconforto.
 ```{r}
 bronquiolite[, c("Melhora dos sinais de desconforto respiratório", "Grupo")] %>%
   table() %>%
-  fisher.test(simulate.p.value = TRUE)
+  fisher.test()
 ```
 
 Não existe evidências de associação entre tipo de tratamento e melhora
 nos sinais de desconforto respiratório.
 
-Presença de Complicações
+### Presença de Complicações
 ```{r}
 bronquiolite[, c("Complicações", "Grupo")] %>%
   table() %>%
-  fisher.test(simulate.p.value = TRUE)
+  fisher.test()
 ```
 * , não existe evidências de associação do tipo de tratamento com a  variável "Presença de Complicações".
 
