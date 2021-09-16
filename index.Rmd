@@ -76,24 +76,23 @@ Não existe evidência significativa de associação entre tipo de tratamento
 e a presença de complicações.
 
 
-################## Variáveis Quantitativas #############
+## Variáveis Quantitativas
 
-Tempo de Internação
-
-* Testando a normalidade dos dados 
+### Tempo de internação
 ```{r, warning = FALSE}
 bronquiolite %$%
   shapiro.test(Tempo)
 ```
-* Os dados não possuem evidências de normalidade, portanto iremos aplicar o teste de Kruskal Wallis, pois esse teste compara a média de duas populações e não é necessário fazer nenhuma inferência sobre a distribuição de probabilidades da variável de interesse.
-
+Dado que há evidências contra a hipótese de normalidade, será usado o teste de
+Mann-Whitney-Wilcoxon.
 
 ```{r, warning = FALSE}
 wilcox.test(Tempo ~ Grupo, bronquiolite)
 ```
 
-* , não existe evidências de associação do tipo de tratamento com a  variável "Tempo de Internação".
-
+Não há evidências de associação significativa entre tipo de tratamento
+e tempo de internação.
+*********************************************************
 ```{r, warning = FALSE}
 ggplot(bronquiolite) +
   aes(x = Grupo, y = Tempo) +
