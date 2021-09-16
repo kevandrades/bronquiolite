@@ -92,7 +92,7 @@ wilcox.test(Tempo ~ Grupo, bronquiolite)
 
 Não há evidências de associação significativa entre tipo de tratamento
 e tempo de internação.
-*********************************************************
+
 ```{r, warning = FALSE}
 ggplot(bronquiolite) +
   aes(x = Grupo, y = Tempo) +
@@ -113,13 +113,13 @@ ggsave("tempo_tratamento.pdf", width = 170, height = 95, units = "mm")
 bronquiolite %$%
   shapiro.test(Oxigênio)
 ```
-* Os dados não possuem evidências de normalidade, portanto iremos aplicar o teste de Kruskal Wallis, pois esse teste compara a média de duas populações e não é necessário fazer nenhuma inferência sobre a distribuição de probabilidades da variável de interesse.
+Há evidências contra a hipótese de normalidade. Será usado o teste de Mann-Whitney-Wilcoxon.
 
 ```{r, warning = FALSE}
 wilcox.test(Oxigênio ~ Grupo, bronquiolite)
 ```
 
-* , não existe evidências de associação do tipo de tratamento com a  variável "Quantidade de Litros de Oxigênio".
+Há evidências de associação entre tipo de tratamento e a quantidade de litros de oxigênio.
 
 ### Melhora na Saturação de Oxigênio
 
@@ -128,10 +128,10 @@ bronquiolite %$%
   shapiro.test(Saturação)
 ```
 
-* Os dados não possuem evidências de normalidade, portanto iremos aplicar o teste de Kruskal Wallis, pois esse teste compara a média de duas populações e não é necessário fazer nenhuma inferência sobre a distribuição de probabilidades da variável de interesse.
+Há evidências contra a hipótese de normalidade da saturação.
 
 ```{r, warning = FALSE}
 wilcox.test(Saturação ~ Grupo, bronquiolite)
 ```
 
-* , não existe evidências de associação do tipo de tratamento com a  variável "Melhora na Saturação de Oxigênio".
+Não há evidências de associação do tipo de tratamento com a melhora na saturação de oxigênio.
