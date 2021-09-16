@@ -21,4 +21,4 @@ map(
     ) # selecionando colunas que vão ser usadas
 ) %>%
   bind_rows() %>%
-  write.csv("data/bronquiolite.xlsx")
+  write.csv("data/bronquiolite.xlsx", row.names = FALSE)
