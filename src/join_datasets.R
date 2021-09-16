@@ -21,4 +21,5 @@ map(
     ) # selecionando colunas que vão ser usadas
 ) %>%
   bind_rows() %>%
-  write.csv("data/bronquiolite.xlsx", row.names = FALSE)
+  rename(`Melhora dos sinais de desconforto respiratório` = `Melhora dos sinais de desconforto respiratório (leve, parcial, significativa)`) %>%
+  write.csv("data/bronquiolite.csv", row.names = FALSE)
