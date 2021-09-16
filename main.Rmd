@@ -1,12 +1,56 @@
 ---
-title: "Bronquiolite"
+output: 
+  pdf_document:
+    citation_package: natbib
+    keep_tex: true
+    fig_caption: true
+    latex_engine: pdflatex
+    template: ./template/svm-latex-ms.tex
+bibliography: master.bib
+header-includes:
+  -  \usepackage{hyperref}
+  - \usepackage{array}   
+  - \usepackage{caption}
+  - \usepackage{graphicx}
+  - \usepackage{siunitx}
+  - \usepackage[table]{xcolor}
+  - \usepackage{multirow}
+  - \usepackage{hhline}
+  - \usepackage{calc}
+  - \usepackage{tabularx}
+  - \usepackage{fontawesome}
+  - \usepackage[para,online,flushleft]{threeparttable}
+biblio-style: apsr
+title: "Tratamentos com oxigenoterapia em pacientes com bronquiolite"
+thanks: "Replication files are available on the author's Github account (http://github.com/svmiller). **Current version**: `r format(Sys.time(), '%B %d, %Y')`; **Corresponding author**: svmille@clemson.edu."
 author:
 - name: Kassyano Kevyn Andrade de Souza
 - name: Rayssa Lorrane Costa Souza 
-output: html_document
+  affiliation: Universidade de Brasília
+abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+keywords: "bronquiolite, oxigenoterapia"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+geometry: margin=1in
+fontfamily: libertine
+fontsize: 11pt
+# spacing: double
+endnote: no
 ---
 
-```{r, include = FALSE}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+    cache = TRUE,
+    message = FALSE, warning = FALSE,
+    fig.path = "figs/",
+    cache.path = "_cache/",
+    fig.process = function(x) {
+        x2 <- sub("-\\d+([.][a-z]+)$", "\\1", x)
+        if (file.rename(x, x2)) x2 else x
+    }
+)
+```
+
+```{r, echo = FALSE}
 source("src/packages.R")
 ```
 ```{r, include = FALSE}
