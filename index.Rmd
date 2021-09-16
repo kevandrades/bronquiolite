@@ -24,7 +24,7 @@ Nível de significância para todos os testes: 0,05
 (
   reinternacoes_grupo <- bronquiolite[, c("Reinternações", "Grupo")] %>%
     table() %>%
-    chisq.test()
+    fisher.test()
 )
 ```
 
@@ -39,7 +39,7 @@ de reinternações.
 (
   desconforto_grupo <- bronquiolite[, c("Desconforto", "Grupo")] %>%
     table() %>%
-    chisq.test()
+    fisher.test()
 )
 ```
 O p valor foi extremamente pequeno, mostrando evidências de que o tipo de tratamento
@@ -57,23 +57,24 @@ O tratamento de "Oxigenoterapia + Outros" tem mais casos graves em relação ao 
 de "Oxigenoterapia", de modo que "Oxigenoterapia + Outros" apresenta um maior grau de
 desconforto.
 
-Melhora dos Sinais de Desconforto  Respiratório
+### Melhora nos sinais de desconforto respiratório
 
 ```{r}
-bronquiolite[, c("Melhora dos sinais de desconforto respiratório (leve, parcial, significativa)", "Grupo")] %>%
+bronquiolite[, c("Melhora dos sinais de desconforto respiratório", "Grupo")] %>%
   table() %>%
-  chisq.test(simulate.p.value = TRUE)
+  fisher.test(simulate.p.value = TRUE)
 ```
 
-* Aceitamos H0, ou seja, considerando que o valor p é maior que 0,05, com nivél de significância de 95%, não existe evidências de associação do tipo de tratamento com a  variável "Melhora dos Sinais de Desconforto  Respiratório".
+Não existe evidências de associação entre tipo de tratamento e melhora
+nos sinais de desconforto respiratório.
 
 Presença de Complicações
 ```{r}
 bronquiolite[, c("Complicações", "Grupo")] %>%
   table() %>%
-  chisq.test(simulate.p.value = TRUE)
+  fisher.test(simulate.p.value = TRUE)
 ```
-* Aceitamos H0, ou seja, considerando que o valor p é maior que 0,05, com nivél de significância de 95%, não existe evidências de associação do tipo de tratamento com a  variável "Presença de Complicações".
+* , não existe evidências de associação do tipo de tratamento com a  variável "Presença de Complicações".
 
 
 ################## Variáveis Quantitativas #############
@@ -92,7 +93,7 @@ bronquiolite %$%
 wilcox.test(Tempo ~ Grupo, bronquiolite)
 ```
 
-* Aceitamos H0, ou seja, considerando que o valor p é maior que 0,05, com nivél de significância de 95%, não existe evidências de associação do tipo de tratamento com a  variável "Tempo de Internação".
+* , não existe evidências de associação do tipo de tratamento com a  variável "Tempo de Internação".
 
 ```{r}
 ggplot(bronquiolite) +
@@ -122,7 +123,7 @@ bronquiolite %$%
 wilcox.test(Oxigênio ~ Grupo, bronquiolite)
 ```
 
-* Aceitamos H0, ou seja, considerando que o valor p é maior que 0,05, com nivél de significância de 95%, não existe evidências de associação do tipo de tratamento com a  variável "Quantidade de Litros de Oxigênio".
+* , não existe evidências de associação do tipo de tratamento com a  variável "Quantidade de Litros de Oxigênio".
 
 Melhora na Saturação de Oxigênio
 
@@ -137,4 +138,4 @@ bronquiolite %$%
 wilcox.test(Saturação ~ Grupo, bronquiolite)
 ```
 
-* Aceitamos H0, ou seja, considerando que o valor p é maior que 0,05, com nivél de significância de 95%, não existe evidências de associação do tipo de tratamento com a  variável "Melhora na Saturação de Oxigênio".
+* , não existe evidências de associação do tipo de tratamento com a  variável "Melhora na Saturação de Oxigênio".
