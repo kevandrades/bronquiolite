@@ -14,40 +14,37 @@ source("src/packages.R")
 bronquiolite <- read_csv("data/bronquiolite.csv")
 ```
 ## Metodologia
-Nível de significância para todos os testes: 0,05
+* Nível de significância para todos os testes: 0,05;
+* O teste de Fisher foi escolhido nas tabelas onde alguma célula possuía frequência esperada menor que 5;
 
 ## Variáveis Qualitativas
 
 ### Presença de reinternações por grupo de tratamento
 
-```{r}
-(
-  reinternacoes_grupo <- bronquiolite[, c("Reinternações", "Grupo")] %>%
-    table() %>%
-    fisher.test()
-)
+```{r, warning = FALSE}
+bronquiolite[, c("Reinternações", "Grupo")] %>%
+  table() %>%
+  chisq.test()
 ```
 
 
-O p-valor obtido é muito alto (`r reinternacoes_grupo %>% str_replace_all("\\.", ",")`,
-de modo que não há evidências de associação entre tipo de tratamento com e a presença
+O p-valor obtido é muito alto, de modo que não há evidências
+de associação entre tipo de tratamento com e a presença
 de reinternações.
 
 ### Grau de desconforto respiratório por grupo de tratamento
 
-```{r}
-(
-  desconforto_grupo <- bronquiolite[, c("Desconforto", "Grupo")] %>%
+```{r, warning = FALSE}
+bronquiolite[, c("Desconforto", "Grupo")] %>%
     table() %>%
-    fisher.test()
-)
+    chisq.test()
 ```
 O p valor foi extremamente pequeno, mostrando evidências de que o tipo de tratamento
 está ligado ao grau de desconforto do paciente.
 
 Verificando qual tratamento apresenta mais casos graves de desconforto respiratório:
 
-```{r}
+```{r, warning = FALSE}
 bronquiolite[, c("Desconforto", "Grupo")] %>%
   table() %>%
   prop.table(margin = 2)
@@ -59,22 +56,24 @@ desconforto.
 
 ### Melhora nos sinais de desconforto respiratório
 
-```{r}
+```{r, warning = FALSE}
 bronquiolite[, c("Melhora dos sinais de desconforto respiratório", "Grupo")] %>%
   table() %>%
   fisher.test()
 ```
 
-Não existe evidências de associação entre tipo de tratamento e melhora
+Não há evidência significativa de associação entre tipo de tratamento e melhora
 nos sinais de desconforto respiratório.
 
 ### Presença de Complicações
-```{r}
+```{r, warning = FALSE}
 bronquiolite[, c("Complicações", "Grupo")] %>%
-  table() %>%
-  fisher.test()
+    table() %>%
+    fisher.test()
 ```
-* , não existe evidências de associação do tipo de tratamento com a  variável "Presença de Complicações".
+
+Não existe evidência significativa de associação entre tipo de tratamento
+e a presença de complicações.
 
 
 ################## Variáveis Quantitativas #############
@@ -82,20 +81,20 @@ bronquiolite[, c("Complicações", "Grupo")] %>%
 Tempo de Internação
 
 * Testando a normalidade dos dados 
-```{r}
+```{r, warning = FALSE}
 bronquiolite %$%
   shapiro.test(Tempo)
 ```
 * Os dados não possuem evidências de normalidade, portanto iremos aplicar o teste de Kruskal Wallis, pois esse teste compara a média de duas populações e não é necessário fazer nenhuma inferência sobre a distribuição de probabilidades da variável de interesse.
 
 
-```{r}
+```{r, warning = FALSE}
 wilcox.test(Tempo ~ Grupo, bronquiolite)
 ```
 
 * , não existe evidências de associação do tipo de tratamento com a  variável "Tempo de Internação".
 
-```{r}
+```{r, warning = FALSE}
 ggplot(bronquiolite) +
   aes(x = Grupo, y = Tempo) +
   geom_boxplot(fill = c("#A9A9A9"), width = 0.5) +
@@ -113,13 +112,13 @@ Quantidade de Litros de Oxigênio
 
 Testando a normalidade dos dados:
 
-```{r}
+```{r, warning = FALSE}
 bronquiolite %$%
   shapiro.test(Oxigênio)
 ```
 * Os dados não possuem evidências de normalidade, portanto iremos aplicar o teste de Kruskal Wallis, pois esse teste compara a média de duas populações e não é necessário fazer nenhuma inferência sobre a distribuição de probabilidades da variável de interesse.
 
-```{r}
+```{r, warning = FALSE}
 wilcox.test(Oxigênio ~ Grupo, bronquiolite)
 ```
 
@@ -127,14 +126,14 @@ wilcox.test(Oxigênio ~ Grupo, bronquiolite)
 
 Melhora na Saturação de Oxigênio
 
-```{r}
+```{r, warning = FALSE}
 bronquiolite %$%
   shapiro.test(Saturação)
 ```
 
 * Os dados não possuem evidências de normalidade, portanto iremos aplicar o teste de Kruskal Wallis, pois esse teste compara a média de duas populações e não é necessário fazer nenhuma inferência sobre a distribuição de probabilidades da variável de interesse.
 
-```{r}
+```{r, warning = FALSE}
 wilcox.test(Saturação ~ Grupo, bronquiolite)
 ```
 
