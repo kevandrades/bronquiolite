@@ -1,4 +1,4 @@
-source('src/packages.R')
+source("src/packages.R")
 
 read_excel_with_groups <- function(filename, sheet, ...) {
   ## read dataset and add group column
@@ -10,8 +10,8 @@ read_excel_with_groups <- function(filename, sheet, ...) {
 
 map(
   c("Oxigenoterapia", "Oxigenoterapia + Outros"), # setting groups
-   # reading datasets from excel sheets
-  ~read_excel_with_groups("data/bronquiolite.xlsx", sheet = .) %>%
+  # reading datasets from excel sheets
+  ~ read_excel_with_groups("data/bronquiolite.xlsx", sheet = .) %>%
     select(
       Reinternações, Grupo, Desconforto,
       `Melhora dos sinais de desconforto respiratório (leve, parcial, significativa)`,
