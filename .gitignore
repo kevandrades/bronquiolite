@@ -46,3 +46,6 @@ vignettes/*.pdf
 
 # Tex main file
 main.tex
+
+# Auto-generated files from Rmd
+/figs/*
