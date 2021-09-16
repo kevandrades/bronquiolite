@@ -1,0 +1,125 @@
+"Reinternações","Grupo","Desconforto","Melhora dos sinais de desconforto respiratório","Complicações","Tempo","Oxigênio","Saturação"
+"ausentes","Oxigenoterapia","Moderado","significativa","Presentes",20,1,3
+"ausentes","Oxigenoterapia","Leve","parcial","Presentes",10,1,3
+"presentes","Oxigenoterapia","Moderado","parcial","Presentes",10,1,5
+"presentes","Oxigenoterapia","Leve","significativa","Ausentes",2,0.5,4
+"ausentes","Oxigenoterapia","Leve","parcial","Ausentes",5,1,3
+"ausentes","Oxigenoterapia","Leve","significativa","Ausentes",7,2,10
+"ausentes","Oxigenoterapia","Moderado","parcial","Ausentes",6,2,5
+"ausentes","Oxigenoterapia","Leve","significativa","Ausentes",2,0.5,5
+"ausentes","Oxigenoterapia","Leve","significativa","Ausentes",7,1,1
+"ausentes","Oxigenoterapia","Moderado","parcial","Ausentes",7,1,4
+"presentes","Oxigenoterapia","Moderado","parcial","Ausentes",4,1,2
+"ausentes","Oxigenoterapia","Moderado","leve","Ausentes",3,6,8
+"ausentes","Oxigenoterapia","Moderado","significativa","Ausentes",2,1,7
+"ausentes","Oxigenoterapia","Leve","significativa","Ausentes",4,1,6
+"ausentes","Oxigenoterapia","Moderado","significativa","Ausentes",4,1,7
+"ausentes","Oxigenoterapia","Leve","significativa","Ausentes",2,1,1
+"ausentes","Oxigenoterapia","Grave","parcial","Ausentes",9,NA,4
+"ausentes","Oxigenoterapia","Leve","significativa","Ausentes",3,1,2
+"presentes","Oxigenoterapia","Leve","significativa","Ausentes",2,1,4
+"presentes","Oxigenoterapia","Moderado","parcial","Ausentes",14,1,4
+"ausentes","Oxigenoterapia","Moderado","parcial","Ausentes",4,1,12
+"ausentes","Oxigenoterapia","Moderado","significativa","Ausentes",15,2,4
+"ausentes","Oxigenoterapia","Moderado","significativa","Ausentes",4,1,4
+"presentes","Oxigenoterapia","Leve","parcial","Ausentes",2,2,5
+"ausentes","Oxigenoterapia","Moderado","parcial","Ausentes",3,1,-3
+"ausentes","Oxigenoterapia","Leve","significativa","Ausentes",3,1,3
+"ausentes","Oxigenoterapia","Moderado","significativa","Ausentes",3,1,5
+"ausentes","Oxigenoterapia","Leve","significativa","Ausentes",3,1,6
+"ausentes","Oxigenoterapia","Leve","significativa","Ausentes",5,1,5
+"ausentes","Oxigenoterapia","Moderado","significativa","Ausentes",1,1,6
+"ausentes","Oxigenoterapia + Outros","Grave","parcial","Presentes",13,NA,6
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Presentes",9,2,3
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Presentes",3,1,3
+"ausentes","Oxigenoterapia + Outros","Grave","parcial","Presentes",4,2,12
+"presentes","Oxigenoterapia + Outros","Leve","significativa","Presentes",6,1,NA
+"presentes","Oxigenoterapia + Outros","Moderado","parcial","Presentes",13,6,1
+"ausentes","Oxigenoterapia + Outros","Grave","significativa","Ausentes",3,2,6
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",4,1,5
+"ausentes","Oxigenoterapia + Outros","Leve","significativa","Ausentes",8,2,4
+"ausentes","Oxigenoterapia + Outros","Leve","parcial","Ausentes",5,2,7
+"ausentes","Oxigenoterapia + Outros","Grave","significativa","Ausentes",3,2,4
+"ausentes","Oxigenoterapia + Outros","Grave","significativa","Ausentes",7,2,16
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",5,1,2
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",7,1,6
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",7,1,3
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",4,2,3
+"ausentes","Oxigenoterapia + Outros","Leve","significativa","Ausentes",5,2,10
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",2,2,2
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",2,1,3
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",5,2,4
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",5,2,5
+"ausentes","Oxigenoterapia + Outros","Grave","significativa","Ausentes",7,2,3
+"ausentes","Oxigenoterapia + Outros","Grave","parcial","Ausentes",5,2,12
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",3,1,6
+"ausentes","Oxigenoterapia + Outros","Grave","parcial","Ausentes",5,2,3
+"ausentes","Oxigenoterapia + Outros","Grave","significativa","Ausentes",5,2,10
+"ausentes","Oxigenoterapia + Outros","Leve","parcial","Ausentes",3,1,3
+"ausentes","Oxigenoterapia + Outros","Leve","significativa","Ausentes",3,1,4
+"ausentes","Oxigenoterapia + Outros","Grave","significativa","Ausentes",7,2,9
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",8,2,7
+"ausentes","Oxigenoterapia + Outros","Leve","parcial","Ausentes",3,1,2
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",4,1,2
+"ausentes","Oxigenoterapia + Outros","Leve","significativa","Ausentes",3,1,6
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",5,1,5
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",6,1,2
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",1,1,4
+"ausentes","Oxigenoterapia + Outros","Leve","significativa","Ausentes",1,1,0
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",7,2,2
+"ausentes","Oxigenoterapia + Outros","Grave","parcial","Ausentes",3,1,6
+"ausentes","Oxigenoterapia + Outros","Leve","significativa","Ausentes",3,1,2
+"ausentes","Oxigenoterapia + Outros","Leve","significativa","Ausentes",4,1,4
+"ausentes","Oxigenoterapia + Outros","Grave","significativa","Ausentes",5,2,6
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",8,2,5
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",2,2,4
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",4,1,7
+"ausentes","Oxigenoterapia + Outros","Leve","significativa","Ausentes",2,1,7
+"ausentes","Oxigenoterapia + Outros","Leve","parcial","Ausentes",2,2,3
+"ausentes","Oxigenoterapia + Outros","Grave","significativa","Ausentes",4,2,7
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",9,2,4
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",2,2,7
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",2,1,5
+"ausentes","Oxigenoterapia + Outros","Leve","significativa","Ausentes",5,2,6
+"ausentes","Oxigenoterapia + Outros","Grave","parcial","Ausentes",5,1,6
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",2,1,2
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",3,1,2
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",7,1,3
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",2,1,5
+"ausentes","Oxigenoterapia + Outros","Grave","parcial","Ausentes",6,1,7
+"ausentes","Oxigenoterapia + Outros","Grave","significativa","Ausentes",8,1,7
+"ausentes","Oxigenoterapia + Outros","Grave","parcial","Ausentes",9,NA,8
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",3,1,3
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",3,2,6
+"ausentes","Oxigenoterapia + Outros","Grave","parcial","Ausentes",4,9,NA
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",11,2,NA
+"ausentes","Oxigenoterapia + Outros","Grave","parcial","Ausentes",5,1,NA
+"ausentes","Oxigenoterapia + Outros","Grave","significativa","Ausentes",2,2,16
+"ausentes","Oxigenoterapia + Outros","Leve","parcial","Ausentes",5,NA,3
+"ausentes","Oxigenoterapia + Outros","Leve","parcial","Ausentes",4,1,3
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",3,2,NA
+"ausentes","Oxigenoterapia + Outros","Grave","parcial","Ausentes",3,2,NA
+"ausentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",9,2,NA
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",11,2,NA
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",1,1.5,NA
+"ausentes","Oxigenoterapia + Outros","Leve","parcial","Ausentes",3,2,NA
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",9,1,3
+"ausentes","Oxigenoterapia + Outros","Grave","parcial","Ausentes",9,NA,9
+"ausentes","Oxigenoterapia + Outros","Grave","significativa","Ausentes",1,1,21
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",6,NA,NA
+"ausentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",1,1,7
+"ausentes","Oxigenoterapia + Outros","Grave","parcial","Ausentes",9,2,NA
+"presentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",8,2,1
+"presentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",5,1,12
+"presentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",4,1,6
+"presentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",2,1,NA
+"presentes","Oxigenoterapia + Outros","Grave","parcial","Ausentes",4,8,8
+"presentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",2,1,9
+"presentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",3,1,5
+"presentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",9,2,6
+"presentes","Oxigenoterapia + Outros","Grave","parcial","Ausentes",5,2,5
+"presentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",3,NA,10
+"presentes","Oxigenoterapia + Outros","Grave","significativa","Ausentes",11,NA,NA
+"presentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",8,NA,10
+"presentes","Oxigenoterapia + Outros","Moderado","significativa","Ausentes",1,1,7
+"presentes","Oxigenoterapia + Outros","Moderado","parcial","Ausentes",3,2,NA
