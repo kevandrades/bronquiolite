@@ -107,9 +107,7 @@ ggplot(bronquiolite) +
 ggsave("tempo_tratamento.pdf", width = 170, height = 95, units = "mm")
 ```
 
-Quantidade de Litros de Oxigênio
-
-Testando a normalidade dos dados:
+### Quantidade de Litros de Oxigênio
 
 ```{r, warning = FALSE}
 bronquiolite %$%
@@ -123,7 +121,7 @@ wilcox.test(Oxigênio ~ Grupo, bronquiolite)
 
 * , não existe evidências de associação do tipo de tratamento com a  variável "Quantidade de Litros de Oxigênio".
 
-Melhora na Saturação de Oxigênio
+### Melhora na Saturação de Oxigênio
 
 ```{r, warning = FALSE}
 bronquiolite %$%
