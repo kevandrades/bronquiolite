@@ -1766,7 +1766,7 @@ Prism.languages.r={comment:/#.*/,string:{pattern:/(['"])(?:\\.|(?!\1)[^\\\r\n])*
             <li><a href="#grau-de-desconforto-respiratório-por-grupo-de-tratamento">Grau de desconforto respiratório por grupo de tratamento</a></li>
             <li><a href="#melhora-nos-sinais-de-desconforto-respiratório">Melhora nos sinais de desconforto respiratório</a></li>
             <li><a href="#presença-de-complicações">Presença de Complicações</a></li>
-            <li><a href="#tempo-de-internação">Tempo de internação</a></li>
+            <li><a href="#tempo-de-internação">Tempo de Internação</a></li>
             <li><a href="#quantidade-de-litros-de-oxigênio">Quantidade de Litros de Oxigênio</a></li>
             <li><a href="#melhora-na-saturação-de-oxigênio">Melhora na Saturação de Oxigênio</a></li>
             </ul>
@@ -1802,6 +1802,8 @@ Prism.languages.r={comment:/#.*/,string:{pattern:/(['"])(?:\\.|(?!\1)[^\\\r\n])*
 </div>
 <div id="presença-de-reinternações-por-grupo-de-tratamento" class="section level1">
 <h1>Presença de reinternações por grupo de tratamento</h1>
+<p><span class="math inline">\(H_{0}: \textrm{A presença de reinternações é igual para ambos os grupos de tratamento}\)</span></p>
+<p><span class="math inline">\(H_{1}: \textrm{Há uma diferença na presença de reinternações entre os grupos de tratamento}\)</span></p>
 <table>
 <caption>
 .
@@ -1831,6 +1833,8 @@ Aceita H0
 </div>
 <div id="grau-de-desconforto-respiratório-por-grupo-de-tratamento" class="section level1">
 <h1>Grau de desconforto respiratório por grupo de tratamento</h1>
+<p><span class="math inline">\(H_{0}: \textrm{O grau de desconforto respiratório é igual em ambos os grupos de tratamento}\)</span></p>
+<p><span class="math inline">\(H_{1}: \textrm{Há uma diferença na no grau de desconforto entre os grupos de tratamento}\)</span></p>
 <table>
 <caption>
 .
@@ -1911,6 +1915,8 @@ Moderado
 </div>
 <div id="melhora-nos-sinais-de-desconforto-respiratório" class="section level1">
 <h1>Melhora nos sinais de desconforto respiratório</h1>
+<p><span class="math inline">\(H_{0}: \textrm{A melhora nos sinais de desconforto respiratório não está associada com o grupo de tratamento}\)</span></p>
+<p><span class="math inline">\(H_{1}: \textrm{Há associação entre grupo melhora nos sinais de desconforto e grupo de tratamento}\)</span></p>
 <table>
 <caption>
 .
@@ -1940,6 +1946,8 @@ Aceita H0
 </div>
 <div id="presença-de-complicações" class="section level1">
 <h1>Presença de Complicações</h1>
+<p><span class="math inline">\(H_{0}: \textrm{A presença de complicações não está associada com o grupo de tratamento}\)</span></p>
+<p><span class="math inline">\(H_{1}: \textrm{Há associação entre presença de complicações e grupo de tratamento}\)</span></p>
 <table>
 <caption>
 .
@@ -1968,7 +1976,9 @@ Aceita H0
 <p>Não existe evidência significativa de associação entre tipo de tratamento e a presença de complicações.</p>
 </div>
 <div id="tempo-de-internação" class="section level1">
-<h1>Tempo de internação</h1>
+<h1>Tempo de Internação</h1>
+<p><span class="math inline">\(H_{0}: \textrm{O tempo de internação não está associada com o grupo de tratamento}\)</span></p>
+<p><span class="math inline">\(H_{1}: \textrm{Há associação entre tempo de internação e grupo de tratamento}\)</span></p>
 <p>Dado que há evidências contra a hipótese de normalidade, será usado o teste de Mann-Whitney-Wilcoxon.</p>
 <table>
 <caption>
@@ -2000,6 +2010,8 @@ Aceita H0
 </div>
 <div id="quantidade-de-litros-de-oxigênio" class="section level1">
 <h1>Quantidade de Litros de Oxigênio</h1>
+<p><span class="math inline">\(H_{0}: \textrm{A quantidade de litros de oxigênio não está associada com o grupo de tratamento}\)</span></p>
+<p><span class="math inline">\(H_{1}: \textrm{Há associação entre quantidade de litros de oxigênio e grupo de tratamento}\)</span></p>
 <p>Há evidências contra a hipótese de normalidade. Será usado o teste de Mann-Whitney-Wilcoxon.</p>
 <table>
 <caption>
@@ -2030,6 +2042,8 @@ Rejeita H0
 </div>
 <div id="melhora-na-saturação-de-oxigênio" class="section level1">
 <h1>Melhora na Saturação de Oxigênio</h1>
+<p><span class="math inline">\(H_{0}: \textrm{A melhora na saturação do oxigênio não está associada com o grupo de tratamento}\)</span></p>
+<p><span class="math inline">\(H_{1}: \textrm{Há associação entre melhora na saturação do oxigênio e grupo de tratamento}\)</span></p>
 <p>Há evidências contra a hipótese de normalidade da saturação.</p>
 <table>
 <caption>

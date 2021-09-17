@@ -29,6 +29,9 @@ bronquiolite <- read_csv("data/bronquiolite.csv")
 * O teste de Fisher foi escolhido nas tabelas onde alguma célula possuía frequência esperada menor que 5;
 
 # Presença de reinternações por grupo de tratamento
+$H_{0}: \textrm{A presença de reinternações é igual para ambos os grupos de tratamento}$
+
+$H_{1}: \textrm{Há uma diferença na presença de reinternações entre os grupos de tratamento}$
 
 ```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Reinternações", "Grupo")] %>%
@@ -42,6 +45,11 @@ de associação entre tipo de tratamento com e a presença
 de reinternações.
 
 # Grau de desconforto respiratório por grupo de tratamento
+
+$H_{0}: \textrm{O grau de desconforto respiratório é igual em ambos os grupos de tratamento}$
+
+$H_{1}: \textrm{Há uma diferença na no grau de desconforto entre os grupos de tratamento}$
+
 
 ```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Desconforto", "Grupo")] %>%
@@ -66,6 +74,9 @@ de "Oxigenoterapia", de modo que "Oxigenoterapia + Outros" apresenta um maior gr
 desconforto.
 
 # Melhora nos sinais de desconforto respiratório
+$H_{0}: \textrm{A melhora nos sinais de desconforto respiratório não está associada com o grupo de tratamento}$
+
+$H_{1}: \textrm{Há associação entre grupo melhora nos sinais de desconforto e grupo de tratamento}$
 
 ```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Melhora dos sinais de desconforto respiratório", "Grupo")] %>%
@@ -78,6 +89,10 @@ Não há evidência significativa de associação entre tipo de tratamento e mel
 nos sinais de desconforto respiratório.
 
 # Presença de Complicações
+$H_{0}: \textrm{A presença de complicações não está associada com o grupo de tratamento}$
+
+$H_{1}: \textrm{Há associação entre presença de complicações e grupo de tratamento}$
+
 ```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Complicações", "Grupo")] %>%
     table() %>%
@@ -88,7 +103,11 @@ bronquiolite[, c("Complicações", "Grupo")] %>%
 Não existe evidência significativa de associação entre tipo de tratamento
 e a presença de complicações.
 
-# Tempo de internação
+# Tempo de Internação
+$H_{0}: \textrm{O tempo de internação não está associada com o grupo de tratamento}$
+
+$H_{1}: \textrm{Há associação entre tempo de internação e grupo de tratamento}$
+
 ```{r, include = FALSE, warning = FALSE}
 bronquiolite %$%
   shapiro.test(Tempo)
@@ -119,7 +138,9 @@ ggplot(bronquiolite) +
 ```
 
 # Quantidade de Litros de Oxigênio
+$H_{0}: \textrm{A quantidade de litros de oxigênio não está associada com o grupo de tratamento}$
 
+$H_{1}: \textrm{Há associação entre quantidade de litros de oxigênio e grupo de tratamento}$
 ```{r, include = FALSE, warning = FALSE}
 bronquiolite %$%
   shapiro.test(Oxigênio)
@@ -134,6 +155,10 @@ wilcox.test(Oxigênio ~ Grupo, bronquiolite) %>%
 Há evidências de associação entre tipo de tratamento e a quantidade de litros de oxigênio.
 
 # Melhora na Saturação de Oxigênio
+
+$H_{0}: \textrm{A melhora na saturação do oxigênio não está associada com o grupo de tratamento}$
+
+$H_{1}: \textrm{Há associação entre melhora na saturação do oxigênio e grupo de tratamento}$
 
 ```{r, include = FALSE, warning = FALSE}
 bronquiolite %$%
