@@ -147,6 +147,13 @@ wilcox.test(Oxigênio ~ Grupo, bronquiolite) %>%
 
 Há evidências de associação entre tipo de tratamento e a quantidade de litros de oxigênio.
 
+```{r, echo = FALSE, warning = FALSE}
+bronquiolite[, c("Oxigênio", "Grupo")] %>%
+  table() %>%
+  prop.table(margin = 1) %>%
+  kable()
+```
+
 # Melhora na Saturação de Oxigênio
 
 $H_{0}: \textrm{A melhora na saturação do oxigênio não está associada com o grupo de tratamento}$
