@@ -3,9 +3,7 @@ title: "Tratamentos com oxigenoterapia em pacientes com bronquiolite"
 runningheader: "Tratamentos com oxigenoterapia em pacientes com bronquiolite" # only for pdf output
 subtitle: "Diferenças entre os grupos de tratamento" # only for html output
 author:
-- name: Kevyn Andrade
-  affiliation: Universidade de Brasília
-- name: Rayssa Souza 
+- name: Kevyn Andrade e Rayssa Souza 
   affiliation: Universidade de Brasília
 date: "`r Sys.Date()`"
 output: rmdformats::downcute
@@ -14,18 +12,6 @@ output: rmdformats::downcute
 source("src/packages.R")
 ```
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-    cache = TRUE,
-    message = FALSE, warning = FALSE,
-    fig.path = "figs/",
-    cache.path = "_cache/",
-    fig.process = function(x) {
-        x2 <- sub("-\\d+([.][a-z]+)$", "\\1", x)
-        if (file.rename(x, x2)) x2 else x
-    }
-)
-```
 
 ```{r, echo = FALSE, include = FALSE}
 # reading dataset
