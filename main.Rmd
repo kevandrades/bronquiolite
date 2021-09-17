@@ -15,7 +15,7 @@ output:
 pkgdown:
   as_is: true
 ---
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, results='hide'}
 source("src/packages.R")
 ```
 
