@@ -20,3 +20,26 @@ table_from_test <- function(test) {
         ) %>%
         return()
 }
+
+
+table_from_indep_test <- function(dataset, hypo.test = chisq.test) {
+    test <- dataset %>%
+        table() %>%
+        hypo.test()
+
+    variables <- names(dataset)
+
+    data.frame(
+        p.value = c(test$p.value %>% round(3)),
+        result = c(if (test$p.value > 0.05) "Aceita H0" else "Rejeita H0")
+    ) %>%
+        kable(
+            col.names = c("P-valor", "Conclusão"),
+            escape = T,
+            caption = paste(
+                variables[1], variables[2],
+                sep = " por "
+            )
+        ) %>%
+        return()
+}

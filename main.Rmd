@@ -26,6 +26,7 @@ bronquiolite <- read_csv("data/bronquiolite.csv")
 ```
 # Metodologia
 * Nível de significância para todos os testes: 0,05;
+* Os p-valores foram arredondados para 3 casas decimais;
 * O teste de Fisher foi escolhido nas tabelas onde alguma célula possuía frequência esperada menor que 5;
 
 # Presença de reinternações por grupo de tratamento
@@ -35,9 +36,7 @@ $H_{1}: \textrm{Há uma diferença na presença de reinternações entre os grup
 
 ```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Reinternações", "Grupo")] %>%
-  table() %>%
-  chisq.test() %>%
-  table_from_test()
+  table_from_indep_test()
 ```
 
 O p-valor obtido é muito alto, de modo que não há evidências
@@ -53,9 +52,7 @@ $H_{1}: \textrm{Há uma diferença na no grau de desconforto entre os grupos de 
 
 ```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Desconforto", "Grupo")] %>%
-    table() %>%
-    chisq.test() %>%
-  table_from_test()
+  table_from_indep_test()
 ```
 O p valor foi extremamente pequeno, mostrando evidências de que o tipo de tratamento
 está ligado ao grau de desconforto do paciente.
@@ -80,9 +77,7 @@ $H_{1}: \textrm{Há associação entre grupo melhora nos sinais de desconforto e
 
 ```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Melhora dos sinais de desconforto respiratório", "Grupo")] %>%
-  table() %>%
-  fisher.test() %>%
-  table_from_test()
+  table_from_indep_test(fisher.test)
 ```
 
 Não há evidência significativa de associação entre tipo de tratamento e melhora
@@ -95,9 +90,7 @@ $H_{1}: \textrm{Há associação entre presença de complicações e grupo de tr
 
 ```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Complicações", "Grupo")] %>%
-    table() %>%
-    fisher.test() %>%
-    table_from_test()
+    table_from_indep_test(fisher.test)
 ```
 
 Não existe evidência significativa de associação entre tipo de tratamento
