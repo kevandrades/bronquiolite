@@ -20,7 +20,7 @@ source("src/packages.R")
 ```
 
 
-```{r, message = FALSE, include = FALSE}
+```{r, echo = FALSE, include = FALSE}
 # reading dataset
 bronquiolite <- read_csv("data/bronquiolite.csv")
 ```
