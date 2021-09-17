@@ -3,7 +3,7 @@ title: "Tratamentos com oxigenoterapia em pacientes com bronquiolite"
 runningheader: "Tratamentos com oxigenoterapia em pacientes com bronquiolite" # only for pdf output
 subtitle: "Diferenças entre os grupos de tratamento" # only for html output
 author:
-- name: Kevyn Andrade e Rayssa Souza 
+- name: Kevyn Andrade | Rayssa Souza 
   affiliation: Universidade de Brasília
 date: "`r Sys.Date()`"
 output:
@@ -15,12 +15,12 @@ output:
 pkgdown:
   as_is: true
 ---
-```{r}
+```{r, echo = FALSE}
 source("src/packages.R")
 ```
 
 
-```{r, echo = FALSE, include = FALSE}
+```{r, message = FALSE, include = FALSE}
 # reading dataset
 bronquiolite <- read_csv("data/bronquiolite.csv")
 ```
@@ -57,7 +57,8 @@ Verificando qual tratamento apresenta mais casos graves de desconforto respirat�
 ```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Desconforto", "Grupo")] %>%
   table() %>%
-  prop.table(margin = 1)
+  prop.table(margin = 1) %>%
+  kable()
 ```
 
 O tratamento de "Oxigenoterapia + Outros" tem mais casos graves em relação ao tratamento
