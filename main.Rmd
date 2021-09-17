@@ -6,7 +6,14 @@ author:
 - name: Kevyn Andrade e Rayssa Souza 
   affiliation: Universidade de Brasília
 date: "`r Sys.Date()`"
-output: rmdformats::downcute
+output:
+  rmdformats::downcute:
+    self_contained: true
+    thumbnails: false
+    lightbox: true
+    downcute_theme: "chaos"
+pkgdown:
+  as_is: true
 ---
 ```{r}
 source("src/packages.R")
@@ -21,9 +28,7 @@ bronquiolite <- read_csv("data/bronquiolite.csv")
 * Nível de significância para todos os testes: 0,05;
 * O teste de Fisher foi escolhido nas tabelas onde alguma célula possuía frequência esperada menor que 5;
 
-# Variáveis Qualitativas
-
-## Presença de reinternações por grupo de tratamento
+# Presença de reinternações por grupo de tratamento
 
 ```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Reinternações", "Grupo")] %>%
@@ -36,7 +41,7 @@ O p-valor obtido é muito alto, de modo que não há evidências
 de associação entre tipo de tratamento com e a presença
 de reinternações.
 
-## Grau de desconforto respiratório por grupo de tratamento
+# Grau de desconforto respiratório por grupo de tratamento
 
 ```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Desconforto", "Grupo")] %>%
@@ -59,7 +64,7 @@ O tratamento de "Oxigenoterapia + Outros" tem mais casos graves em relação ao 
 de "Oxigenoterapia", de modo que "Oxigenoterapia + Outros" apresenta um maior grau de
 desconforto.
 
-## Melhora nos sinais de desconforto respiratório
+# Melhora nos sinais de desconforto respiratório
 
 ```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Melhora dos sinais de desconforto respiratório", "Grupo")] %>%
@@ -71,7 +76,7 @@ bronquiolite[, c("Melhora dos sinais de desconforto respiratório", "Grupo")] %>
 Não há evidência significativa de associação entre tipo de tratamento e melhora
 nos sinais de desconforto respiratório.
 
-## Presença de Complicações
+# Presença de Complicações
 ```{r, echo = FALSE, warning = FALSE}
 bronquiolite[, c("Complicações", "Grupo")] %>%
     table() %>%
@@ -82,10 +87,7 @@ bronquiolite[, c("Complicações", "Grupo")] %>%
 Não existe evidência significativa de associação entre tipo de tratamento
 e a presença de complicações.
 
-
-# Variáveis Quantitativas
-
-## Tempo de internação
+# Tempo de internação
 ```{r, include = FALSE, warning = FALSE}
 bronquiolite %$%
   shapiro.test(Tempo)
@@ -115,7 +117,7 @@ ggplot(bronquiolite) +
 #ggsave("tempo_tratamento.pdf", width = 170, height = 95, units = "mm")
 ```
 
-## Quantidade de Litros de Oxigênio
+# Quantidade de Litros de Oxigênio
 
 ```{r, include = FALSE, warning = FALSE}
 bronquiolite %$%
@@ -130,7 +132,7 @@ wilcox.test(Oxigênio ~ Grupo, bronquiolite) %>%
 
 Há evidências de associação entre tipo de tratamento e a quantidade de litros de oxigênio.
 
-## Melhora na Saturação de Oxigênio
+# Melhora na Saturação de Oxigênio
 
 ```{r, include = FALSE, warning = FALSE}
 bronquiolite %$%
