@@ -4,15 +4,15 @@ runningheader: "Tratamentos com oxigenoterapia em pacientes com bronquiolite" # 
 subtitle: "Diferenças entre os grupos de tratamento" # only for html output
 author:
 - name: Kevyn Andrade
+  affiliation: Universidade de Brasília
 - name: Rayssa Souza 
   affiliation: Universidade de Brasília
 date: "`r Sys.Date()`"
-output:
-  tufte::tufte_html: default
-  tufte::tufte_handout:
-    latex_engine: xelatex
-link-citations: yes
+output: rmdformats::downcute
 ---
+```{r}
+source("src/packages.R")
+```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -27,9 +27,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r}
-source("src/packages.R")
-```
 ```{r, echo = FALSE, include = FALSE}
 # reading dataset
 bronquiolite <- read_csv("data/bronquiolite.csv")
