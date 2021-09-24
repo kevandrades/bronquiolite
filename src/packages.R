@@ -11,7 +11,7 @@ if (!(rmarkdown::pandoc_available())) install.pandoc()
 
 table_from_test <- function(test) {
     data.frame(
-        p.value = c(test$p.value %>% round(3)),
+        p.value = c(test$p.value),
         result = c(if (test$p.value > 0.05) "Aceita H0" else "Rejeita H0")
     ) %>%
         kable(
@@ -30,7 +30,7 @@ table_from_indep_test <- function(dataset, hypo.test = chisq.test) {
     variables <- names(dataset)
 
     data.frame(
-        p.value = c(test$p.value %>% round(3)),
+        p.value = c(test$p.value),
         result = c(if (test$p.value > 0.05) "Aceita H0" else "Rejeita H0")
     ) %>%
         kable(
